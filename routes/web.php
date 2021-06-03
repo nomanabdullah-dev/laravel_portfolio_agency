@@ -25,6 +25,7 @@ Route::get('/',[PagesController::class,'index']);
 Route::post('/send-message',[PagesController::class,'message'])->name('send.message');
 
 Auth::routes();
+    Route::get('/home', [PagesController::class,'dashboard'])->name('home');
 
 Route::prefix('admin')->middleware('auth')->group(function(){
     Route::get('/dashboard', [PagesController::class, 'dashboard'])->name('admin.dashboard');
@@ -67,4 +68,3 @@ Route::prefix('admin')->middleware('auth')->group(function(){
 
 
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
